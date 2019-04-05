@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reddit Rater</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      #pic {
+        height: 100%;
+        background: url({{ current_submission.url }});
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+  <div style=" bottom: 0; position: fixed; z-index: 1; background-color: rgba(255,255,255,0.85); padding: 1em 2em; font-family: 'Open Sans';">
+  <h1>Guess The Score of The Submission</h1>
+  <h2>Round #{{ round_no }}</h2>
+
+  <h3>You Guessed: {{ guess }}</h3>
+  <h3>Actual: {{ actual }}</h3>
+  <button id="next" >Next</button>
+
+  <p><b> Your score: </b>{{ score }}</p>
+  <p><b> Rounds left: </b>{{ rounds_remaining }}</p>
+
+  </div>
+    <div id="pic"></div>
+  </body>
+
+  <script>
+    const main = () => document
+      .getElementById('next')
+      .addEventListener('click', () => window.location = '/');
+
+    window.onload = () => main();
+  </script>
+</html>
